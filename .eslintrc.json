@@ -14,7 +14,9 @@
   },
   "rules": {
     "jsx-a11y/href-no-hash": ["off"],
+    "react/react-in-jsx-scope": "off",
     "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
+    "react/jsx-fragments" : ["off", "element"],
     "max-len": [
       "warn",
       {

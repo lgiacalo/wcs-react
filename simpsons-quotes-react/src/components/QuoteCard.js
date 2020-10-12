@@ -1,19 +1,28 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 import './QuoteCard.css';
 
-function QuoteCard() {
+function QuoteCard(props) {
+
 
   return (
     <figure className="QuoteCard">
-      <img src="https://pm1.narvii.com/7070/aeaeadea89d89327a8e5f4f83d10272dc337425fr1-1200-1200v2_128.jpg" alt="Nelson Muntz" />
+      <img src={props.image} alt={props.character} />
       <figcaption>
         <blockquote>
-          Shoplifting is a victimless crime, like punching someone in the dark.
+          {props.quote}
         </blockquote>
-        <cite>Nelson Muntz</cite>
+        <cite>{props.character}</cite>
       </figcaption>
     </figure>
   )
 }
+
+//https://fr.reactjs.org/docs/typechecking-with-proptypes.html
+QuoteCard.propTypes = {
+  image: PropTypes.string.isRequired,
+  quote: PropTypes.string.isRequired,
+  character: PropTypes.string.isRequired,
+};
 
 export default QuoteCard;

@@ -32,7 +32,7 @@ const users = [
 
 function ContactList() {
   return (
-    users.map(elm => <Contact name={elm.name} online={elm.online} avatar={elm.avatar} />)
+    users.map(elm => <Contact key={elm.name + elm.avatar} name={elm.name} online={elm.online} avatar={elm.avatar} />)
   )
 }
 

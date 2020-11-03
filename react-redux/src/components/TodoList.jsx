@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
-import { UPDATE_TODO_ACTION } from "../store/todosReducer";
+import { todosSelector } from "../store/todosSelectors";
+import { toggleTodoAction } from "../store/todosActions";
 
 function TodoItem({ todo, onToggle }) {
   return (
@@ -28,13 +29,9 @@ export function TodoList({ todos, onToggle }) {
 
 export const TodoListStore = connect(
   (state) => ({
-    todos: state.todos,
+    todos: todosSelector(state),
   }),
   (dispatch) => ({
-    onToggle: (todo) =>
-      dispatch({
-        type: UPDATE_TODO_ACTION,
-        payload: { ...todo, completed: !todo.completed },
-      }),
+    onToggle: (todo) => dispatch(toggleTodoAction(todo)),
   })
 )(TodoList);

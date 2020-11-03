@@ -18,7 +18,17 @@ function TodoItem({ todo, onToggle }) {
   );
 }
 
-export function TodoList() {
+export function TodoList({ todos, onToggle }) {
+  return (
+    <ul>
+      {todos.map((todo) => (
+        <TodoItem todo={todo} onToggle={onToggle} key={todo.id} />
+      ))}
+    </ul>
+  );
+}
+
+export function TodoListStore() {
   const todos = useSelector(todosSelector);
   const dispatch = useDispatch();
   const onToggle = useCallback(
@@ -28,13 +38,7 @@ export function TodoList() {
     [dispatch]
   );
 
-  return (
-    <ul>
-      {todos.map((todo) => (
-        <TodoItem todo={todo} onToggle={onToggle} key={todo.id} />
-      ))}
-    </ul>
-  );
+  return <TodoList todos={todos} onToggle={onToggle} />;
 }
 
 // export const TodoListStore = connect(

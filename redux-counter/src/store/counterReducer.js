@@ -1,6 +1,6 @@
 export const ADD = "ADD";
-export const REMOVE = "ADD";
-export const RESET = "ADD";
+export const REMOVE = "REMOVE";
+export const RESET = "RESET";
 
 export const counterReducer = (state = 0, action) => {
   switch (action.type) {

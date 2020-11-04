@@ -1,4 +1,6 @@
-const { Component } = require("react");
+import { Component } from "react";
+import { connect } from "react-redux";
+import { switchAction } from "../store/actionsCreators";
 
 class LightComponent extends Component {
   render() {
@@ -12,4 +14,26 @@ class LightComponent extends Component {
   }
 }
 
-export default LightComponent;
+// const LightComponentStore = connect(
+//   (state) => ({
+//     light: state,
+//   }),
+//   (dispatch) => ({
+//     onSwitch: () => dispatch({ type: SWITCH_ACTION }),
+//   })
+// )(LightComponent);
+
+const mapStateToProps = (state) => ({
+  light: state,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onSwitch: () => dispatch(switchAction()),
+});
+
+const LightComponentStore = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LightComponent);
+
+export default LightComponentStore;

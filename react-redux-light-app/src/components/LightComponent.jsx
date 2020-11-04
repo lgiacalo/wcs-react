@@ -1,17 +1,21 @@
-import { Component } from "react";
-import { connect } from "react-redux";
+import { useCallback } from "react";
+import { connect, useDispatch, useSelector } from "react-redux";
 import { switchAction } from "../store/actionsCreators";
 
-class LightComponent extends Component {
-  render() {
-    const { light, onSwitch } = this.props;
-    return (
-      <div>
-        <p>{light}</p>
-        <button onClick={onSwitch}>Switch</button>
-      </div>
-    );
-  }
+function LightComponent(props) {
+  const light = useSelector((state) => state);
+  const dispatch = useDispatch();
+  const onSwitch = useCallback(() => {
+    dispatch(switchAction());
+  }, [dispatch]);
+
+  // const { light, onSwitch } = props;
+  return (
+    <div>
+      <p>{light}</p>
+      <button onClick={onSwitch}>Switch</button>
+    </div>
+  );
 }
 
 // const LightComponentStore = connect(

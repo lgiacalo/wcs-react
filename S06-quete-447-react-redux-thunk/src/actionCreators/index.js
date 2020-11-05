@@ -25,7 +25,7 @@ export const merde = 'fjiejfie';
 
 // THUNK permet d'emettre plusieurs actions / utilisé pour l'asynchrone.
 
-export const fetchArticles = dispatch => async () => () => {
+export const fetchArticles = dispatch => async () => {
   dispatch({
     type: FETCH_ARTICLES__BEGIN,
   });

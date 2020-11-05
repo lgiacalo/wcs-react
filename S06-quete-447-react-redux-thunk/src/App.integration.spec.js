@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import fetchMock from 'fetch-mock';
-import App from './App';
+import App from './App.container';
 
 const ARTICLES = [
   { name: 'Hiking shoes', weight: 0.7 },

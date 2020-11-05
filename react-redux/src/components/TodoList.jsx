@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { connect, useSelector, useDispatch } from "react-redux";
-import { todosSelector } from "../store/todosSelectors";
+import { todosSelector, filteredTodosSelector } from "../store/todosSelectors";
 import { deleteTodoAction, toggleTodoAction } from "../store/todosActions";
 
 function TodoItem({ todo, onToggle, onDelete }) {
@@ -35,7 +35,7 @@ export function TodoList({ todos, onToggle, onDelete }) {
 }
 
 export function TodoListStore() {
-  const todos = useSelector(todosSelector);
+  const todos = useSelector(filteredTodosSelector);
   const dispatch = useDispatch();
   const onToggle = useCallback(
     (todo) => {

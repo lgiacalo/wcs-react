@@ -10,4 +10,8 @@ const mapDispatchToProps = dispatch => ({
   fetchArticles: fetchArticles(dispatch),
 });
 
+// const mapDispatchToProps = dispatch => ({
+//   fetchArticles: fetchArticles(dispatch),
+// });
+
 export default connect(mapStateToProps, mapDispatchToProps)(App);
